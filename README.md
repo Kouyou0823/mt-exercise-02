@@ -1,6 +1,10 @@
 # MT Exercise 2: Pytorch RNN Language Models
 
-This repo shows how to train neural language models using [Pytorch example code](https://github.com/pytorch/examples/tree/master/word_language_model). Thanks to Emma van den Bold, the original author of these scripts. 
+This repo shows how to train neural language models using [Pytorch example code](https://github.com/pytorch/examples/tree/master/word_language_model). Thanks to Emma van den Bold, the original author of these scripts.
+
+# Parameter tuning: Experimenting with dropout
+
+We trained 5 different language models using various dropout settings (0.0, 0.2, 0.4, 0.6, 0.8) on the novel *Pride and Prejudice* by Jane Austen, sourced from [Project Gutenberg](https://www.gutenberg.org/ebooks/1342). Our goal was to compare perplexities across different dropout values and select the best performing model.
 
 # Requirements
 
@@ -32,13 +36,16 @@ Download and preprocess data:
     ./scripts/download_data.sh
 
 Train a model:
+We trained 5 models with different dropout values:
 
     ./scripts/train.sh
+Modify the dropout value in scripts/train.sh and rerun it to train other models. All models are saved under models/, and corresponding perplexity logs under logs/.
 
-The training process can be interrupted at any time, and the best checkpoint will always be saved.
+Analyze Perplexity & Plot:
+    python scripts/plot_logs.py
 
 Generate (sample) some text from a trained model with:
 
     ./scripts/generate.sh
-
+Edit generate.sh to choose which model to load
 
