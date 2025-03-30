@@ -42,7 +42,11 @@ We trained 5 models with different dropout values:
 Modify the dropout value in scripts/train.sh and rerun it to train other models. All models are saved under models/, and corresponding perplexity logs under logs/.
 
 Analyze Perplexity & Plot:
-    python scripts/plot_logs.py
+
+```bash
+python scripts/plot_logs.py
+
+The resulting plots (train_ppl_curve.png and valid_ppl_curve.png) will be saved in the logs/ directory.
 
 Generate (sample) some text from a trained model with:
 
